@@ -1,0 +1,117 @@
+<!-- will make api calls from this page between script tags -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--metatag for Log-In-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reset CSS -->
+<!--   <link rel="stylesheet" type="text/css" href="assets/reset.css">
+ -->  <!-- Materialize Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="../public/style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway:300i,400" rel="stylesheet">
+  <!-- Makes Button Icon Work -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Most stable and latest version of jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <!-- Materialize Compiled and minified JavaScript -->
+  <script src="assets/materialize.min.js"></script>
+  <!-- External JS -->
+  <script src="../server.js" type="text/javascript"></script>
+
+  <title>Politimates</title>
+</head>
+
+<body>
+
+  <!-- results -->
+  <div id="wrapper">
+
+    <div class="row">
+      <div class="col s12">
+
+        <!-- Modal Structure -->
+        <div id="modal226" class="modal">
+          <div class="modal-content">
+            <h4 class="candidate">Name of Candidate</p>
+            <p class="email">Contact</p>
+            <p class="score">Score differential</p>
+          </div>
+        </div>
+
+        </div>
+      
+
+      </div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="row">
+      <div class="col s6">
+        <h1 id="title">Politi</h1>
+      </div>
+      <div class="col s1" id="title3" >
+        <i class="material-icons" id = "heart">
+        favorite</i>
+      </div>
+      <div class="col s5">
+        <h1 id="title2">mates</h1>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col m5" id="subDiv">
+        <div class="card white darken-1 z-depth-0" >
+          <div class="card-content black-text" id="sub">
+            <!--Google Maps API div-->
+            <span class="card-title">Love Matters</span>
+            <p id="values" >Values Matter</p>
+          </div>
+        </div>
+      </div>
+
+   
+
+      <div class="col s7"  id="resulting">
+        <div class="card white darken-1 z-depth-0">
+          <div class="card-content black-text"  id="results">
+            <span class="card-title" id="span">CONSIDER THE<br>CANDIDATE</span>
+            <div id="candidateInfo"></div>
+                     </div>
+        </div>
+      </div>
+     
+    </div>
+    <div class="row">
+   <div class="col s2"  id="surveyLand">
+    <a class="waves-effect waves-light btn"><i class="material-icons right">favorite</i>Take the Poll</a>
+
+
+    </div>
+    </div>
+
+      <footer class="footer">
+        <div class="container">
+            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+        </div>
+      </footer>
+</div>
+</body>
+
+</html>s
+
+
+
+
+<!-- app.get to /survey & display survey page-->
+
+<!-- use.get default use case that sends to home page-->
+
+<!--survey is 10 questions of your choosing rated on a scale of 1-5-->
