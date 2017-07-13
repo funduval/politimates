@@ -1,24 +1,21 @@
-const app = require('express');
-const parse = require('body-parser')
-const path = require('path')
-
-// @Dependencies
-const express = require('express')
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
-const {sendFile, isValid} = require('./helpers')
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 // @Boilerplate
-const app = express()
-const PORT = 8000
+const app = express();
+const PORT = process.env.PORT || 4020;
 
-// @Database (Mock)
-const tables = []
-const waitlist = []
+//parse app /x-www-urlencoded
+app.use(bodyParser.urlencoded({extended:false}))
 
-// @Middleware
-app.use(morgan('combined'))
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.text())
-app.use(bodyParser.json())
-app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
+//parse app JSON
+app.use(bodyParser.json());
+
+require('./app/routing/apiRoutes.js')(app);
+require('./app/routing/htmlRoutes.js')(app);
+
+app.listen(PORT,function(){
+	console.log("App is listening in port 4020")
+})
+
