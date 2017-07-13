@@ -3,6 +3,11 @@ body {
     background-repeat: no-repeat;
     background-color: #121c50;
 }
+.instruction {
+text-align: center;
+
+}
+
 
 /*HEADER*/
 #title {
