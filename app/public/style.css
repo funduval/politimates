@@ -26,12 +26,14 @@ body {
     margin-top: 0;
     margin-left: -20px;
     background-color: #F2F2F2;
+    position: absolute;
+    z-index: -2; 
     
 }
 
 #values{
     font-size: 32px;
-    line-height:40px;
+    line-height:48px;
     color:white;
     font-weight: bold;
     text-align: center;
@@ -84,7 +86,7 @@ body {
 }
 #resulting{
 
-    margin-left: -100px;
+    margin-left: -120px;
 }
 
 .btn {
@@ -98,14 +100,17 @@ body {
 }
 
 footer{
+    padding-left: 0px;
     margin-left: 0px;
     margin-top: 100px;
 }
 
-#span{
+#nav{
 
-line-height: 46px;
-    }
+    margin-left: -100px;
+}
+
+
 
 .card .card-content .card-title {
     
@@ -119,7 +124,7 @@ line-height: 46px;
 }
 
 #sub{
-    margin-left: -70px;
+    margin-left: -74px;
     color: #3D3F01;
 }
 .card{
@@ -131,9 +136,6 @@ line-height: 46px;
     color: #3D3F01;
 
 }
-
-
-
 
 /*MODAL*/
 #modal1 {
@@ -165,6 +167,14 @@ line-height: 46px;
     background-color: #999;
 }
 
+#copy{
+
+    font-size: 18px;
+    color:white;
+    display: inline;
+    float:right;
+}
+
 .btn:focus {
     background-color: #333;
 }
@@ -187,6 +197,27 @@ p {
 
 }
 
+   #span{
+
+line-height: 46px;
+color: purple;
+    }
+
+      #love{
+
+line-height: 46px;
+color: purple;
+    }
+
+    @media screen and (max-width: 1220px) {
+
+ #title3 {
+        background-color: transparent;
+      
+    }
+
+    }
+
 @media screen and (max-width: 1000px) {
     #title {
         background-color: transparent;
@@ -206,27 +237,31 @@ p {
         margin-left: 8%;
         margin-top: 70px;
         font-size: 36px;
+        z-index: 2;
 
     } 
+
+    #love{
+
+        color: purple;
+    }
   
     #resulting{
         margin-left: 7%;
         line-height: 38px;
-
         
     }
 
     #span{
 
 line-height: 46px;
+color: purple;
     }
 
     #results{
- margin-left: 1%;
-
- min-width:230px;
-
  
+ margin-left: 1%;
+ min-width:230px;
 
     }
 
@@ -234,6 +269,10 @@ line-height: 46px;
     #heart{
 
     font-size: 220px;
+}
+#nav{
+
+    margin-left: 10%;
 }
 
     .btn{
@@ -249,9 +288,17 @@ line-height: 46px;
     }
 
     #sub {
-
         
         min-width:200px;
         padding-left: 20px;
     }
+    #copy{
+
+    font-size: 18px;
+    color:white;
+    display: block;
+    float:left;
+    margin-left: 8%;
+}
+
 }
