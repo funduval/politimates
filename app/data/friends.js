@@ -17,8 +17,8 @@ var friends = [
       4,
       1
     ],
-    "id":1},
-    {"name":"Kristen",
+    "id":1}
+    , {"name":"Kristen",
   "photo":"http://cdn-img.instyle.com/sites/default/files/styles/original/public/images/2017/05/051017-kristen-stewart-chanel-lead.jpg?itok=IgT2-xaD",
   "scores":[
       3,

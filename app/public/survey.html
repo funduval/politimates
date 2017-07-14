@@ -46,8 +46,8 @@
 							</div>
 
 							<div class="form-group">
-								<label for="">Political Affiliation</label>
-								<input type="text" class="form-control" id="party">
+								<label for="">URL to your image (required)</label>
+								<input type="text" class="form-control" id="userImage">
 							</div>
 
 							<hr size="10">
@@ -57,17 +57,17 @@
 
 
 							<div class="form-group">
-								<label for="">How much do you care about lower taxes?</label>
+								<label for="">How much do you care about believe in taxes/ pooling individual income to share common goods and services?</label>
 								<input type="text" class="form-control" id="tax">
 							</div>
 
 							<div class="form-group">
-								<label for="">How much do you care about job creation/being pro-business?</label>
+								<label for="">How much do you care about caps on corporate profits, even if it affects job stimulus?</label>
 								<input type="text" class="form-control" id="jobs">
 							</div>
 
 							<div class="form-group">
-								<label for="">How much do you want to see ACA/Obamacare repealed or replaced?</label>
+								<label for="">How much do you want to see ACA/Obamacare maintained, assuming forthcoming improvements?</label>
 								<input type="text" class="form-control" id="health">
 							</div>
 							<div class="form-group">
@@ -77,17 +77,17 @@
 
 							
 							<div class="form-group">
-								<label for="">How much do you believe in added defense spending?</label>
+								<label for="">How much do you believe on limited defense spending?</label>
 								<input type="text" class="form-control" id="defense">
 							</div>
 
 							<div class="form-group">
-								<label for="">To what degree do you think globalization is a problem?</label>
+								<label for="">To what degree do you think globalism is good for people and economies?</label>
 								<input type="text" class="form-control" id="globe">
 							</div>
 
 							<div class="form-group">
-								<label for="">To what degree do you believe institutionalized racism is a problem?</label>
+								<label for="">To what degree do you believe institutionalized racism needs to be addressed?</label>
 								<input type="text" class="form-control" id="racism">
 							</div>
 
@@ -106,7 +106,7 @@
 								<input type="text" class="form-control" id="choice">
 							</div>
 
-							<button type="submit" class="btn btn-primary submit">Submit</button>
+							<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="modal">Find the Best Candidate</button>
 						</form>
 
 					</div>
@@ -114,6 +114,27 @@
 
 			</div>
 		</div>
+		<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">The Best Candidate for You</h4>
+      </div>
+      <div class="modal-body">
+        <p id="matchName">Name of match goes here.</p>
+      </div>
+      <div class="modal-body">
+        <p id="matchImg">Image of match goes here.</p>
+         <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Try again</button>
+      </div>
+    </div>
 
 
 	    <footer class="footer">
@@ -130,63 +151,33 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
 
-	// In this code below we create the Front-end Javascript which "POSTS" our form data to our express server.
-	// In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-	// Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-	// In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+	// "POST" form data to the express server.
 
-	$(".submit").on("click", function(){
+	$("#modal").on("click", function(){
 
-		// Here we grab the form elements
-		let newUser = {
+			let newUser = {
 			name: $('#name').val().trim(),
-			party: $('#part').val().trim(),
-			email: $('#email').val().trim(),
-			iD: friends.length + 1
-			survey: []
+			photo: $("#photo").val(),
+	    	scores: [$("#tax").val(), $("#jobs").val(), $("#health").val(), $("#universal").val(), $("#defense").val(), $("#globe").val(), $("#racism").val(), $("#all").val(), $("#denial").val(), $("#choice").val()]
 		};
 
+	    	// Grab the URL of the website
+	    	var currentURL = window.location.origin;
 
+	    	// AJAX post the data to the friends API. 
+	    	$.post(currentURL + "/api/friends", newUser, function(data){
 
-		newUser.push($('#tax').val(""));
-		newUser.push($('#jobs').val("");
-		newUser.push($('#health').val("");
-		newUser.push($('#universal').val("");
-		newUser.push($('#defense').val("");
-		newUser.push($('#global').val("");
-		newUser.push($('#racism').val("");
-		newUser.push($('#all').val("");
-		newUser.push($('#denial').val("");
-		newUser.push($('#choice').val("");
+	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+	    		$("#matchName").text(data.name);
+	    		$('#matchImg').attr("src", data.photo);
 
+		    	// Show the modal with the best match 
+		    	$("#resultsModal").modal('toggle');
 
-		console.log(newUser);
-
+	    	});
+		}
 		
-		var currentURL = window.location.origin;
+    });
 
-	    $.post(currentURL + "/api/tables", newReservation,
-	    function(data){
-
-	    		alert("Politimatching you now!")
-
-	    	// Clear the form when submitting
-    		$('name').val("");
-			$('email').val("");
-			$('party').val("");
-			$('#tax').val("");
-			$('#jobs').val("");
-			$('#health').val("");
-			$('#universal').val("");
-			$('#defense').val("");
-			$('#globe').val("");
-			$('#racism').val("");
-			$('#allLives').val("");
-			$('#denial').val("");
-			$('#choice').val("");
-
-	    });
-
-});
-
+	
 </script>
