@@ -1,189 +1,152 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>The Polling Place</title>
-
-	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="../public/style.css">
-
+    <meta charset="UTF-8">
+    <title>The Polling Place</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../public/style.css">
 </head>
+
 <body>
-
-	<div class="container">
-
-		<div class="jumbotron">
-			<h1 class="text-center"><span class="glyphicon glyphicon-heart"></span> Tell Us Your Position on the Issues</h1>
-			<hr>		
-			<br>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-12">
-
-				<!-- Reservation Page -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">Candidate Info</h4>
-					</div>
-					<div class="panel-body">
-
-						<form role="form">
-
-							<div class="form-group">
-								<label for="">Name</label>
-								<input type="text" class="form-control" id="name">
-							</div>
-
-							
-							<div class="form-group">
-								<label for="">Email</label>
-								<input type="text" class="form-control" id="email">
-							</div>
-
-							<div class="form-group">
-								<label for="">URL to your image (required)</label>
-								<input type="text" class="form-control" id="userImage">
-							</div>
-
-							<hr size="10">
-						
-							<p><h2 class="instruction">The following is a survey</h2><h3 class="instruction">Please tell us how much you agree, on a scale of 1-5. <br>1 being "Disagree" and 5 being "Strongly Agree"</h3></p>
-							<hr size="10">
-
-
-							<div class="form-group">
-								<label for="">How much do you care about believe in taxes/ pooling individual income to share common goods and services?</label>
-								<input type="text" class="form-control" id="tax">
-							</div>
-
-							<div class="form-group">
-								<label for="">How much do you care about caps on corporate profits, even if it affects job stimulus?</label>
-								<input type="text" class="form-control" id="jobs">
-							</div>
-
-							<div class="form-group">
-								<label for="">How much do you want to see ACA/Obamacare maintained, assuming forthcoming improvements?</label>
-								<input type="text" class="form-control" id="health">
-							</div>
-							<div class="form-group">
-								<label for="">How much do you believe in Universal Healthcare for every American?</label>
-								<input type="text" class="form-control" id="universal">
-							</div>
-
-							
-							<div class="form-group">
-								<label for="">How much do you believe on limited defense spending?</label>
-								<input type="text" class="form-control" id="defense">
-							</div>
-
-							<div class="form-group">
-								<label for="">To what degree do you think globalism is good for people and economies?</label>
-								<input type="text" class="form-control" id="globe">
-							</div>
-
-							<div class="form-group">
-								<label for="">To what degree do you believe institutionalized racism needs to be addressed?</label>
-								<input type="text" class="form-control" id="racism">
-							</div>
-
-							<div class="form-group">
-								<label for="">How much do you believe "All Lives Matter" is actually a racist slogan?</label>
-								<input type="text" class="form-control" id="allLives">
-							</div>
-
-							<div class="form-group">
-								<label for="">Do you believe there should be laws against Holocaust denial?</label>
-								<input type="text" class="form-control" id="denial">
-							</div>
-
-								<div class="form-group">
-								<label for="">How 'pro-choice' are you?</label>
-								<input type="text" class="form-control" id="choice">
-							</div>
-
-							<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="modal">Find the Best Candidate</button>
-						</form>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">The Best Candidate for You</h4>
-      </div>
-      <div class="modal-body">
-        <p id="matchName">Name of match goes here.</p>
-      </div>
-      <div class="modal-body">
-        <p id="matchImg">Image of match goes here.</p>
-         <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Try again</button>
-      </div>
-    </div>
-
-
-	    <footer class="footer">
-	      <div class="container">
-	        <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> </p>
-	      </div>
-	    </footer>
-
-	</div>
-
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center"><span class="glyphicon glyphicon-heart"></span> Tell Us Your Position on the Issues</h1>
+            <hr>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Reservation Page -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Candidate Info</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">URL to your image (required)</label>
+                                <input type="text" class="form-control" id="userImage">
+                            </div>
+                            <hr size="10">
+                            <p>
+                                <h2 class="instruction">The following is a survey</h2>
+                                <h3 class="instruction">Please tell us how much you agree, on a scale of 1-5. <br>1 being "Disagree" and 5 being "Strongly Agree"</h3></p>
+                            <hr size="10">
+                            <div class="form-group">
+                                <label for="">How much do you care about believe in taxes/ pooling individual income to share common goods and services?</label>
+                                <input type="text" class="form-control" id="tax">
+                            </div>
+                            <div class="form-group">
+                                <label for="">How much do you care about caps on corporate profits, even if it affects job stimulus?</label>
+                                <input type="text" class="form-control" id="jobs">
+                            </div>
+                            <div class="form-group">
+                                <label for="">How much do you want to see ACA/Obamacare maintained, assuming forthcoming improvements?</label>
+                                <input type="text" class="form-control" id="health">
+                            </div>
+                            <div class="form-group">
+                                <label for="">How much do you believe in Universal Healthcare for every American?</label>
+                                <input type="text" class="form-control" id="universal">
+                            </div>
+                            <div class="form-group">
+                                <label for="">How much do you believe on limited defense spending?</label>
+                                <input type="text" class="form-control" id="defense">
+                            </div>
+                            <div class="form-group">
+                                <label for="">To what degree do you think globalism is good for people and economies?</label>
+                                <input type="text" class="form-control" id="globe">
+                            </div>
+                            <div class="form-group">
+                                <label for="">To what degree do you believe institutionalized racism needs to be addressed?</label>
+                                <input type="text" class="form-control" id="racism">
+                            </div>
+                            <div class="form-group">
+                                <label for="">How much do you believe "All Lives Matter" is actually a racist slogan?</label>
+                                <input type="text" class="form-control" id="allLives">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Do you believe there should be laws against Holocaust denial?</label>
+                                <input type="text" class="form-control" id="denial">
+                            </div>
+                            <div class="form-group">
+                                <label for="">How 'pro-choice' are you?</label>
+                                <input type="text" class="form-control" id="choice">
+                            </div>
+                            <input type="submit" class="btn btn-info btn-danger btn-lg" value="Submit Answers" id="submit">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="modal">Now Find the Best Candidate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">The Best Candidate for You</h4>
+                    </div>
+                    <div class="modal-body" id="modalContent">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Try again</button>
+                    </div>
+                </div>
+            </div>
 </body>
-</html>
 
+</html>
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
+// "POST" form data to the express server.
 
-	// "POST" form data to the express server.
+$("#submit").on("click", function() {
 
-	$("#modal").on("click", function(){
+    event.preventDefault();
 
-			let newUser = {
-			name: $('#name').val(),
-			photo: $("#photo").val(),
-	    	scores: [$("#tax").val(), $("#jobs").val(), $("#health").val(), $("#universal").val(), $("#defense").val(), $("#globe").val(), $("#racism").val(), $("#all").val(), $("#denial").val(), $("#choice").val()]
-		};
+    let newUser = {
+        "name": $('#name').val(),
+        "photo": $("#photo").val(),
+        "email": "scores": [$("#tax").val(), $("#jobs").val(), $("#health").val(), $("#universal").val(), $("#defense").val(), $("#globe").val(), $("#racism").val(), $("#all").val(), $("#denial").val(), $("#choice").val()]
+    };
 
-	    	// Grab the URL of the website
-	    	var currentURL = window.location.origin;
+    // Grab the URL of the website
+    var currentURL = window.location.origin;
 
-	    	// AJAX post the data to the friends API. 
-	    	$.post(currentURL + "/api/candidates", newUser, function(data){
+    // AJAX post the data to the friends API. 
+    $.post(currentURL + "/api/candidates", newUser, function(data) {
+        if (data == true) {
 
-						candidates.push(newUser);
+            alert(newUser.name + " is in the Race!");
 
-	    	});
+        }
 
-	    	$.ajax(get("/api/bestCandidate", function(req,res){
-
-	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
-
-	    		$("#matchName").text(data.name);
-	    		$('#matchImg').attr("src", data.photo);
-
-		    	
-
-	    	});
-		}
-		
     });
 
-	
+    $.ajax({url: currentURL + "/api/bestCandidate", method: "GET"
+
+      	}).done(function(bestCandidate){
+
+      		var modalContent = $("<h3>")
+      		modalContent.addClass('matchName')
+      		$("#modalContent").html(modalContent);
+
+      	});
+
+
+});
 </script>

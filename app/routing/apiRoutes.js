@@ -4,6 +4,7 @@ var bestCandidate = require('../data/bestCandidate.js');
 
 module.exports = function (app) {
 
+
 app.get("/api/candidates", function(req,res){
 
   res.json(candidates);
@@ -15,10 +16,6 @@ app.get("/api/bestCandidate", function(req,res){
   res.json(bestCandidate);
 
 })
-
-
-
-app.post("/api/candidates", function(req,res){
 
 //================declare variables "global" (to the post route, at least)
 
@@ -62,19 +59,21 @@ arrayTwo.map(function(object){
 //Determine the smallest value (differences) in the array of all absolute differences (allDiff). This is the score of your best match.//
   
 Array.min = function( allDiff ){
+
     return Math.min.apply( Math, allDiff );
 };    
 
 //find the indexOf that score. It is also the index of the person in the whole candidates data object.//
 
   bestMatch = Array.min(allDiff);
-  bestIndex = allDiff.indexOf(bestCandidate)
+  bestIndex = allDiff.indexOf(bestMatch)
   bestMatch = candidates[bestIndex];
 
-  //here we will have to post it onto the pop-up modal
+  //here we will have to post it to the APIapp.post("/api/bestCandidate", function(req,res){
+
+app.post("/api/bestCandidate", function(req,res){
  
  bestCandidate.push(bestMatch);
- res.json(true); 
 
 });
 
