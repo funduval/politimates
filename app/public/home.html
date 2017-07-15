@@ -1,440 +1,357 @@
 <!-- will make api calls from this page between script tags -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <!--metatag for Log-In-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Reset CSS -->
-<!--   <link rel="stylesheet" type="text/css" href="assets/reset.css">
- -->  <!-- Materialize Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-  <!-- Stylesheet -->
-  <link rel="stylesheet" type="text/css" href="../public/style.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway:300i,400" rel="stylesheet">
-  <!-- Makes Button Icon Work -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Most stable and latest version of jQuery-->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <!-- Materialize Compiled and minified JavaScript -->
-  <script src="assets/materialize.min.js"></script>
-  <!-- External JS -->
-  <script src="../server.js" type="text/javascript"></script>
-  <style>body {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: #121c50;
-}
-.instruction {
-text-align: center;
-
-}
-
-
-/*HEADER*/
-#title {
-    font-family: "Oswald", sans-serif;
-    font-size: 200px;
-    color: #e2333f;
-    letter-spacing: 10px;
-    margin-left: 15%;
-    margin-top: 0;
-    background-color: #F2F2F2;
-    padding-left: 4%;
-    
-
-}
-
-#title2 {
-    font-family: "Oswald", sans-serif;
-    font-size: 200px;
-    color: #121c50;
-    letter-spacing: 10px;
-    margin-top: 0;
-    margin-left: -4px;
-    background-color: #F2F2F2;
-    position: absolute;
-    z-index: -2; 
-    
-}
-
-#values{
-    font-size: 32px;
-    line-height:48px;
-    color:white;
-    font-weight: bold;
-    text-align: center;
-}
-#title3 {
-    font-family: "Oswald", sans-serif;
-    font-size: 200px;
-    color: #121c50;
-    letter-spacing: 0px;
-    margin-left: -6%;
-    background-color: #F2F2F2;
-    font-style: bold;
-    height: 220px;
-    line-height: 220px;
-    margin-top: 0;
-    padding-bottom: 12px;
-    padding-top: 0px;
-    min-width: 150px;
-
-    
-}
-#heart{
-
-    font-size:140px;
-    color:purple;
-}
-
-.row .col {
-    padding: 0;
-}
-
-/*CENTER CONTENT*/
-#wrapper {
-    margin-left: 5%;
-    margin-right: 6%;
-}
-
-/*CARD*/
-.card {
-    margin-left: 22%;
-    background-color: #F2F2F2;
-    color: #3D3F01;
-
-
-}
-.card-content{
-
-    background-color: #F2F2F2;
-    color: #3D3F01;
-
-}
-#resulting{
-
-    margin-left: -82px;
-}
-
-.btn {
-
-    background-color: #186a8c;
-}
-
-#surveyLand{
-
-    margin-left: 14%;
-}
-
-footer{
-    padding-left: 0px;
-    margin-left: 0px;
-    margin-top: 100px;
-}
-
-#nav{
-
-    margin-left: -100px;
-}
-
-
-
-.card .card-content .card-title {
-    
-    font-family: "Oswald", sans-serif;
-    text-align: center;
-    letter-spacing: 2px;
-    color: #3D3F01;
-    font-size: 40px;
-    margin-bottom: 15px;
-    background-color: #F2F2F2;
-}
-
-#sub{
-    margin-left: -20px;
-    color: #3D3F01;
-}
-.card{
-    color: #3D3F01;
-
-}
-
-.card-title{
-    color: #3D3F01;
-
-}
-
-/*MODAL*/
-#modal1 {
-    display: block;
-    margin-bottom: .85em;
-    margin-left: 10px;
-}
-
-.modal .modal-content {
-    background-color: #F2F2F2;
-    text-align: center;
-    color: #3D3F01;
-}
-
-/*BUTTONS*/
-.btn {
-    background-color: #999;
-}
-
-.btn:hover {
-    background-color:#333;
-}
-
-.btn:active {
-    background-color: #999;
-}
-
-.btn:visited {
-    background-color: #999;
-}
-
-#copy{
-
-    font-size: 18px;
-    color:white;
-    display: inline;
-    float:right;
-}
-
-.btn:focus {
-    background-color: #333;
-}
-/*MODAL TEXT*/
-#nameBrew {
-    font-family: "Oswald", sans-serif;
-    font-size: 50px;
-    margin-bottom: 30px;
-    color: #3D3F01;
-}
-
-
-p {
-    font-family: "Raleway", sans-serif;
-    font-style: italic;
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #3D3F01;
-    background-color: #121c50;
-
-}
-
-   #span{
-
-line-height: 46px;
-color: purple;
+    <meta charset="UTF-8">
+    <!--metatag for Log-In-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Reset CSS -->
+    <!--   <link rel="stylesheet" type="text/css" href="assets/reset.css">
+ -->
+    <!-- Materialize Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../public/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway:300i,400" rel="stylesheet">
+    <!-- Makes Button Icon Work -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Most stable and latest version of jQuery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Materialize Compiled and minified JavaScript -->
+    <script src="assets/materialize.min.js"></script>
+    <!-- External JS -->
+    <script src="../server.js" type="text/javascript"></script>
+    <style>
+    body {
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-color: #121c50;
     }
-
-      #love{
-
-line-height: 46px;
-color: purple;
+    
+    .instruction {
+        text-align: center;
     }
-
-    @media screen and (max-width: 1220px) {
-
- #title3 {
-        background-color: transparent;
-      
-    }
-
-    }
-
-@media screen and (max-width: 1000px) {
+    /*HEADER*/
+    
     #title {
-        background-color: transparent;
-        margin-left: 18%;
-        font-size: 120px;
-        
+        font-family: "Oswald", sans-serif;
+        font-size: 200px;
+        color: #e2333f;
+        letter-spacing: 10px;
+        margin-left: 15%;
+        margin-top: 0;
+        background-color: #F2F2F2;
+        padding-left: 4%;
     }
+    
+    #title2 {
+        font-family: "Oswald", sans-serif;
+        font-size: 200px;
+        color: #121c50;
+        letter-spacing: 10px;
+        margin-top: 0;
+        margin-left: -4px;
+        background-color: #F2F2F2;
+        position: absolute;
+        z-index: -2;
+    }
+    
+    #values {
+        font-size: 32px;
+        line-height: 48px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+    
     #title3 {
-        background-color: transparent;
-        clear:left;
-        margin-left: 20%;
-        margin-top: -40px;
-        
+        font-family: "Oswald", sans-serif;
+        font-size: 200px;
+        color: #121c50;
+        letter-spacing: 0px;
+        margin-left: -6%;
+        background-color: #F2F2F2;
+        font-style: bold;
+        height: 220px;
+        line-height: 220px;
+        margin-top: 0;
+        padding-bottom: 12px;
+        padding-top: 0px;
+        min-width: 150px;
     }
-    #title2{
-        background-color: transparent;
-        clear:left;
-        margin-left: -25%;
-        margin-top: 30px;
-        font-size: 36px;
-        z-index: 2;
-        color:white;
-
-    } 
-
-    #love{
-
+    
+    #heart {
+        font-size: 140px;
         color: purple;
-          margin-top: 0px;
     }
-  
-    #resulting{
-        margin-left: 9%;
-        line-height: 38px;
-        
+    
+    .row .col {
+        padding: 0;
     }
-
-    #span{
-
-line-height: 46px;
-color: purple;
+    /*CENTER CONTENT*/
+    
+    #wrapper {
+        margin-left: 5%;
+        margin-right: 6%;
     }
-
-    #results{
- 
- margin-left: 1%;
- min-width:230px;
-
+    /*CARD*/
+    
+    .card {
+        margin-left: 22%;
+        background-color: #F2F2F2;
+        color: #3D3F01;
     }
-
-
-    #heart{
-
-    font-size: 220px;
-}
-#nav{
-
-    margin-left: 12%;
-}
-
-    .btn{
-
-        font-size: 18px;
-        min-width:260px;
-        margin-left: 18%;
+    
+    .card-content {
+        background-color: #F2F2F2;
+        color: #3D3F01;
     }
-   
-
-    #subDiv{
-
-        margin-left: 30%;
+    
+    #resulting {
+        margin-left: -82px;
     }
-
+    
+    .btn {
+        background-color: #186a8c;
+        min-width: 250px;
+    }
+    
+    #surveyLand {
+        margin-left: 14%;
+    }
+    
+    footer {
+        padding-left: 0px;
+        margin-left: 0px;
+        margin-top: 100px;
+    }
+    
+    #nav {
+        margin-left: -100px;
+    }
+    
+    .card .card-content .card-title {
+        font-family: "Oswald", sans-serif;
+        text-align: center;
+        letter-spacing: 2px;
+        color: #3D3F01;
+        font-size: 40px;
+        margin-bottom: 15px;
+        background-color: #F2F2F2;
+    }
+    
     #sub {
-        
-        min-width:200px;
-        padding-left: 20px;
-        margin-top: -30px;
-        margin-left: -70%;
+        margin-left: -20px;
+        color: #3D3F01;
     }
-    #copy{
-
-    font-size: 18px;
-    color:white;
-    display: block;
-    float:left;
-    margin-left: 8%;
-}
-
-}
-
-@media screen and (max-width: 400px) {
-
-#title2{
-        background-color: transparent;
-        clear:left;
-        margin-left: 34%;
-        margin-top: -150px;
-        font-size: 36px;
-        z-index: 2;
-        color:white;
-
-    } 
-
-
-
-}
-</style>
-
-  <title>Politimates</title>
-
+    
+    .card {
+        color: #3D3F01;
+    }
+    
+    .card-title {
+        color: #3D3F01;
+    }
+    /*MODAL*/
+    
+    #modal1 {
+        display: block;
+        margin-bottom: .85em;
+        margin-left: 10px;
+    }
+    
+    .modal .modal-content {
+        background-color: #F2F2F2;
+        text-align: center;
+        color: #3D3F01;
+    }
+    /*BUTTONS*/
+    
+    .btn {
+        background-color: #999;
+    }
+    
+    .btn:hover {
+        background-color: #333;
+    }
+    
+    .btn:active {
+        background-color: #999;
+    }
+    
+    .btn:visited {
+        background-color: #999;
+    }
+    
+    #copy {
+        font-size: 18px;
+        color: white;
+        display: inline;
+        float: right;
+    }
+    
+    .btn:focus {
+        background-color: #333;
+    }
+    /*MODAL TEXT*/
+    
+    p {
+        font-family: "Raleway", sans-serif;
+        font-style: italic;
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #3D3F01;
+        background-color: #121c50;
+    }
+    
+    #span {
+        line-height: 46px;
+        color: purple;
+    }
+    
+    #love {
+        line-height: 46px;
+        color: purple;
+    }
+    
+    @media screen and (max-width: 1220px) {
+        #title3 {
+            background-color: transparent;
+        }
+    }
+    
+    @media screen and (max-width: 1000px) {
+        #title {
+            background-color: transparent;
+            margin-left: 18%;
+            font-size: 120px;
+        }
+        #title3 {
+            background-color: transparent;
+            clear: left;
+            margin-left: 20%;
+            margin-top: -40px;
+        }
+        #title2 {
+            background-color: transparent;
+            clear: left;
+            margin-left: -25%;
+            margin-top: 30px;
+            font-size: 36px;
+            z-index: 2;
+            color: white;
+        }
+        #love {
+            color: purple;
+            margin-top: 0px;
+        }
+        #resulting {
+            margin-left: 9%;
+            line-height: 38px;
+        }
+        #span {
+            line-height: 46px;
+            color: purple;
+        }
+        #results {
+            margin-left: 1%;
+            min-width: 230px;
+        }
+        #heart {
+            font-size: 220px;
+        }
+        #nav {
+            margin-left: 12%;
+        }
+        .btn {
+            font-size: 18px;
+            min-width: 260px;
+            margin-left: 18%;
+        }
+        #subDiv {
+            margin-left: 30%;
+        }
+        #sub {
+            min-width: 200px;
+            padding-left: 20px;
+            margin-top: -30px;
+            margin-left: -70%;
+        }
+        #copy {
+            font-size: 18px;
+            color: white;
+            display: block;
+            float: left;
+            margin-left: 8%;
+        }
+    }
+    
+    @media screen and (max-width: 400px) {
+        #title2 {
+            background-color: transparent;
+            clear: left;
+            margin-left: 34%;
+            margin-top: -150px;
+            font-size: 36px;
+            z-index: 2;
+            color: white;
+        }
+    }
+    </style>
+    <title>Politimates</title>
 </head>
 
 <body>
-
-  <!-- results -->
-  <div id="wrapper">
-
-    <div class="row">
-      <div class="col s12">
-
-        <!-- Modal Structure -->
-        <div id="modal226" class="modal">
-          <div class="modal-content">
-            <h4 class="candidate">Name of Candidate</h4>
-            <p class="email">Contact</p>
-            <p class="score">Score differential</p>
-          </div>
-        </div>
-
-    <!-- TITLE -->
-    <div class="row">
-      <div class="col s6">
-        <h1 id="title">Politi</h1>
-      </div>
-      <div class="col s1" id="title3" >
-        <i class="material-icons" id = "heart">
+    <!-- results -->
+    <div id="wrapper">
+        <div class="row">
+            <div class="col s12">
+                <!-- TITLE -->
+                <div class="row">
+                    <div class="col s6">
+                        <h1 id="title">Politi</h1>
+                    </div>
+                    <div class="col s1" id="title3">
+                        <i class="material-icons" id="heart">
         favorite</i>
-      </div>
-      <div class="col s5">
-        <h1 id="title2">mates</h1>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div class="col m5" id="subDiv">
-        <div class="card white darken-1 z-depth-0" >
-          <div class="card-content black-text" id="sub">
-            <!--Google Maps API div-->
-            <span class="card-title" id="love">Love Matters</span>
-            <p id="values" >Values Matter</p>
-          </div>
-        </div>
-      </div>
-
-   
-
-      <div class="col s7"  id="resulting">
-        <div class="card white darken-1 z-depth-0">
-          <div class="card-content black-text"  id="results">
-            <span class="card-title" id="span">CONSIDER THE<br>CANDIDATE</span>
-            <div id="candidateInfo"></div>
-                     </div>
-        </div>
-      </div>
-     
-    </div>
-    <div class="row">
-   <div class="col s2"  id="surveyLand">
-    <a class="waves-effect waves-light btn" href="/survey"><i class="material-icons right">favorite</i>Take the Poll</a>
-
-
-    </div>
-    </div>
-
-      <footer class="footer">
-        <div class="container">
-            <p id = "nav"><a href="/api/candidates">API Candidates</a> | <a href="https://github.com/funduval/politimates">GitHub Repo</a></p><p id="copy">@copywright 2017 Funda Duval Istvan
-        </div>
-      </footer>
-</div>
+                    </div>
+                    <div class="col s5">
+                        <h1 id="title2">mates</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m5" id="subDiv">
+                        <div class="card white darken-1 z-depth-0">
+                            <div class="card-content black-text" id="sub">
+                                <!--Google Maps API div-->
+                                <span class="card-title" id="love">Love Matters</span>
+                                <p id="values">Values Matter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s7" id="resulting">
+                        <div class="card white darken-1 z-depth-0">
+                            <div class="card-content black-text" id="results">
+                                <span class="card-title" id="span">CONSIDER THE<br>CANDIDATE</span>
+                                <div id="candidateInfo"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s2" id="surveyLand">
+                        <a class="waves-effect waves-light btn" href="/survey"><i class="material-icons right">favorite</i>Take the Poll</a>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="container">
+                        <p id="nav"><a href="/api/candidates">API Candidates</a> | <a href="https://github.com/funduval/politimates">GitHub Repo</a></p>
+                        <p id="copy">@copywright 2017 Funda Duval Istvan
+                    </div>
+                </footer>
+            </div>
 </body>
 
 </html>
-
-
-

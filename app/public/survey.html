@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../public/style.css">
-</head>
+s</head>
 
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1 class="text-center"><span class="glyphicon glyphicon-heart"></span> Tell Us Your Position on the Issues</h1>
+            <h1 class="text-center"><span class="glyphicon glyphicon-heart"></span> Tell Us Your Favorite Position... on the Issues</h1>
             <hr>
             <br>
         </div>
@@ -45,7 +44,7 @@
                                 <h3 class="instruction">Please tell us how much you agree, on a scale of 1-5. <br>1 being "Disagree" and 5 being "Strongly Agree"</h3></p>
                             <hr size="10">
                             <div class="form-group">
-                                <label for="">How much do you care about believe in taxes/ pooling individual income to share common goods and services?</label>
+                                <label for="">How much do you care about or believe in taxes/ pooling individual income to share common goods and services?</label>
                                 <input type="text" class="form-control" id="tax">
                             </div>
                             <div class="form-group">
@@ -119,33 +118,109 @@ $("#submit").on("click", function() {
     event.preventDefault();
 
     let newUser = {
-        "name": $('#name').val(),
-        "photo": $("#photo").val(),
-        "email": "scores": [$("#tax").val(), $("#jobs").val(), $("#health").val(), $("#universal").val(), $("#defense").val(), $("#globe").val(), $("#racism").val(), $("#all").val(), $("#denial").val(), $("#choice").val()]
+        "name": $('#name').val().trim(),
+        "email": $('#email').val().trim(),
+        "photo": $("#userImage").val().trim(),
+        "scores": [$("#tax").val().trim(), $("#jobs").val().trim(), $("#health").val().trim(), $("#universal").val().trim(), $("#defense").val().trim(), $("#globe").val().trim(), $("#racism").val().trim(), $("#allLives").val().trim(), $("#denial").val().trim(), $("#choice").val().trim()]
     };
 
     // Grab the URL of the website
-    var currentURL = window.location.origin;
+    let currentURL = window.location.origin;
 
     // AJAX post the data to the friends API. 
     $.post(currentURL + "/api/candidates", newUser, function(data) {
-        if (data == true) {
 
-            alert(newUser.name + " is in the Race!");
+            if (data == true) {
 
-        }
+                alert("You're in the Race!");
+
+            }
+
+            	$('#name').val('');
+                $("#photo").val('');
+                $("#email").val('');
+                $("#tax").val('');
+                $("#jobs").val('');
+                $("#health").val('');
+                $("#universal").val('');
+                $("#defense").val('');
+                $("#globe").val('');
+                $("#racism").val('');
+                $("#all").val('');
+                $("#denial").val('');
+                $("#choice").val('');
 
     });
 
-    $.ajax({url: currentURL + "/api/bestCandidate", method: "GET"
+return (false);
 
-      	}).done(function(bestCandidate){
+});
 
-      		var modalContent = $("<h3>")
-      		modalContent.addClass('matchName')
-      		$("#modalContent").html(modalContent);
+var currentURL = window.location.origin;
 
-      	});
+$.ajax({
+    url: currentURL + "/api/candidates",
+    method: "GET"
+
+}).done(function(candidates) {
+	 arrayOne.push(candidates[candidates.length - 1])
+
+        arrayOne = arrayOne.map(function(c) {
+            return c.scores
+        });
+
+        arrayOne = arrayOne[0];
+
+        var arrayTwo = candidates.map(function(d) {
+            return d.scores
+        });
+
+        //subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo (for every single object in arrayTwo) which is the bigger object. Get the absolute values of the difference.//
+
+        arrayTwo.map(function(object) {
+
+            for (var i = 0; i < object.length; i++) {
+
+                var sum = Math.abs(object[i] - arrayOne[i])
+                differences.push(sum);
+
+            }
+            var totDiff = differences.reduce(function(sum, value) {
+                return sum + value;
+            }, 0);
+
+            allDiff.push(totDiff);
+
+        });
+
+        //Determine the smallest value (differences) in the array of all absolute differences (allDiff). This is the score of your best match.//
+
+        Array.min = function(allDiff) {
+
+            return Math.min.apply(Math, allDiff);
+        };
+
+        //find the indexOf that score. It is also the index of the person in the whole candidates data object.//
+
+        bestMatch = Array.min(allDiff);
+        bestIndex = allDiff.indexOf(bestMatch)
+
+        //=====this is. the magic object=====================================//
+
+        bestMatch = candidates[bestIndex];
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });
