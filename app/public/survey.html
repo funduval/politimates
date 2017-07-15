@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Reservation Page</title>
+	<title>The Polling Place</title>
 
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -156,7 +156,7 @@
 	$("#modal").on("click", function(){
 
 			let newUser = {
-			name: $('#name').val().trim(),
+			name: $('#name').val(),
 			photo: $("#photo").val(),
 	    	scores: [$("#tax").val(), $("#jobs").val(), $("#health").val(), $("#universal").val(), $("#defense").val(), $("#globe").val(), $("#racism").val(), $("#all").val(), $("#denial").val(), $("#choice").val()]
 		};
@@ -165,14 +165,20 @@
 	    	var currentURL = window.location.origin;
 
 	    	// AJAX post the data to the friends API. 
-	    	$.post(currentURL + "/api/friends", newUser, function(data){
+	    	$.post(currentURL + "/api/candidates", newUser, function(data){
+
+						candidates.push(newUser);
+
+	    	});
+
+	    	$.ajax(get("/api/bestCandidate", function(req,res){
 
 	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+
 	    		$("#matchName").text(data.name);
 	    		$('#matchImg').attr("src", data.photo);
 
-		    	// Show the modal with the best match 
-		    	$("#resultsModal").modal('toggle');
+		    	
 
 	    	});
 		}

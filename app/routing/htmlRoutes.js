@@ -16,3 +16,8 @@ res.sendFile(path.join(__dirname + '/../public/home.html'))
 
 	});
 }
+
+//app.get to /survey & display survey page//
+
+//use.get default use case that sends to home page//
+
