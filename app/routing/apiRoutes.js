@@ -3,13 +3,6 @@
 var candidates = require('../data/candidates.js');
 var bestCandidate = require('../data/bestCandidate.js');
 
-//================declare variables "global" ==========
-
-var differences = [];
-var allDiff = [];
-var bestMatch;
-var arrayOne = [];
-
 //export function that routes api calls=======================
 
 module.exports = function(app) {
@@ -30,64 +23,73 @@ module.exports = function(app) {
 
     app.post("/api/candidates", function(req, res) {
 
-        candidates.push(req.body);
+var differences = [];
+var allDiff = [];
+var arrayOne = [];
 
-        res.json(true);
+        findDifferences();
+
+        // res.json(bestMatch);
+
+        alert("Your best match is: " + bestMatch)
 
     });
 
-};
+  };
 
-    // //export function that finds differences between arrays================
+    //export function that finds differences between arrays================
 
-    // module.exports = function findDifferences() {
+   function findDifferences() {
 
-    //     arrayOne.push(candidates[candidates.length - 1])
+    var bestMatch;
+    var bestIndex;
 
-    //     arrayOne = arrayOne.map(function(c) {
-    //         return c.scores
-    //     });
+        arrayOne.push(candidates[candidates.length - 1])
 
-    //     arrayOne = arrayOne[0];
+        arrayOne = arrayOne.map(function(c) {
+            return c.scores
+        });
 
-    //     var arrayTwo = candidates.map(function(d) {
-    //         return d.scores
-    //     });
+        arrayOne = arrayOne[0];
 
-    //     //subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo (for every single object in arrayTwo) which is the bigger object. Get the absolute values of the difference.//
+        var arrayTwo = candidates.map(function(d) {
+            return d.scores
+        });
 
-    //     arrayTwo.map(function(object) {
+        //subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo (for every single object in arrayTwo) which is the bigger object. Get the absolute values of the difference.//
 
-    //         for (var i = 0; i < object.length; i++) {
+        arrayTwo.map(function(object) {
 
-    //             var sum = Math.abs(object[i] - arrayOne[i])
-    //             differences.push(sum);
+            for (var i = 0; i < object.length; i++) {
 
-    //         }
-    //         var totDiff = differences.reduce(function(sum, value) {
-    //             return sum + value;
-    //         }, 0);
+                var sum = Math.abs(object[i] - arrayOne[i])
+                differences.push(sum);
 
-    //         allDiff.push(totDiff);
+            }
+            var totDiff = differences.reduce(function(sum, value) {
+                return sum + value;
+            }, 0);
 
-    //     });
+            allDiff.push(totDiff);
 
-    //     //Determine the smallest value (differences) in the array of all absolute differences (allDiff). This is the score of your best match.//
+        });
 
-    //     Array.min = function(allDiff) {
+        //Determine the smallest value (differences) in the array of all absolute differences (allDiff). This is the score of your best match.//
 
-    //         return Math.min.apply(Math, allDiff);
-    //     };
+        Array.min = function(allDiff) {
 
-    //     //find the indexOf that score. It is also the index of the person in the whole candidates data object.//
+            return Math.min.apply(Math, allDiff);
+        };
 
-    //     bestMatch = Array.min(allDiff);
-    //     bestIndex = allDiff.indexOf(bestMatch)
+        //find the indexOf that score. It is also the index of the person in the whole candidates data object.//
 
-    //     //=====this is. the magic object=====================================//
+        bestMatch = Array.min(allDiff);
+        bestIndex = allDiff.indexOf(bestMatch)
 
-    //     bestMatch = candidates[bestIndex];
+        //=====this is. the magic object=====================================//
 
-    // }
+        bestMatch = candidates[bestIndex];
+
+    }
 
 

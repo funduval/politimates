@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>The Polling Place</title>
@@ -8,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-s</head>
+</head>
 
 <body>
     <div class="container">
@@ -106,10 +105,7 @@ s</head>
                     </div>
                 </div>
             </div>
-</body>
-
-</html>
-<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+            <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
 // "POST" form data to the express server.
 
@@ -130,12 +126,6 @@ $("#submit").on("click", function() {
     // AJAX post the data to the friends API. 
     $.post(currentURL + "/api/candidates", newUser, function(data) {
 
-            if (data == true) {
-
-                alert("You're in the Race!");
-
-            }
-
             	$('#name').val('');
                 $("#photo").val('');
                 $("#email").val('');
@@ -146,13 +136,11 @@ $("#submit").on("click", function() {
                 $("#defense").val('');
                 $("#globe").val('');
                 $("#racism").val('');
-                $("#all").val('');
+                $("#allLives").val('');
                 $("#denial").val('');
                 $("#choice").val('');
 
     });
-
-return (false);
 
 });
 
@@ -163,65 +151,10 @@ $.ajax({
     method: "GET"
 
 }).done(function(candidates) {
-	 arrayOne.push(candidates[candidates.length - 1])
-
-        arrayOne = arrayOne.map(function(c) {
-            return c.scores
-        });
-
-        arrayOne = arrayOne[0];
-
-        var arrayTwo = candidates.map(function(d) {
-            return d.scores
-        });
-
-        //subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo (for every single object in arrayTwo) which is the bigger object. Get the absolute values of the difference.//
-
-        arrayTwo.map(function(object) {
-
-            for (var i = 0; i < object.length; i++) {
-
-                var sum = Math.abs(object[i] - arrayOne[i])
-                differences.push(sum);
-
-            }
-            var totDiff = differences.reduce(function(sum, value) {
-                return sum + value;
-            }, 0);
-
-            allDiff.push(totDiff);
-
-        });
-
-        //Determine the smallest value (differences) in the array of all absolute differences (allDiff). This is the score of your best match.//
-
-        Array.min = function(allDiff) {
-
-            return Math.min.apply(Math, allDiff);
-        };
-
-        //find the indexOf that score. It is also the index of the person in the whole candidates data object.//
-
-        bestMatch = Array.min(allDiff);
-        bestIndex = allDiff.indexOf(bestMatch)
-
-        //=====this is. the magic object=====================================//
-
-        bestMatch = candidates[bestIndex];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	alert("call was made to candidates, who are " + candidates)
 
 });
 </script>
+</body>
+
+</html>
