@@ -18,7 +18,8 @@ var candidates = [
             4,
             1
         ],
-        "id": 1
+        "id": 1,
+        "toggle":false
     }, {
         "name": "Kristen",
         "photo": "http://cdn-img.instyle.com/sites/default/files/styles/original/public/images/2017/05/051017-kristen-stewart-chanel-lead.jpg?itok=IgT2-xaD",
@@ -35,6 +36,8 @@ var candidates = [
             1
         ],
         "id": 2
+        ,
+        "toggle":false
     },
 
     {
@@ -52,7 +55,8 @@ var candidates = [
             5,
             2
         ],
-        "id": 3
+        "id": 3,
+        "toggle":false
     },
 
     {
@@ -70,7 +74,8 @@ var candidates = [
             5,
             1
         ],
-        "id": 4
+        "id": 4,
+        "toggle":false
     },
 
     {
@@ -88,7 +93,8 @@ var candidates = [
             4,
             5
         ],
-        "id": 5
+        "id": 5,
+        "toggle":true
     },
 
     {
@@ -106,7 +112,8 @@ var candidates = [
             4,
             1
         ],
-        "id": 6
+        "id": 6,
+        "toggle":false
     },
 ]
 

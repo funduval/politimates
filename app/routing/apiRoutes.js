@@ -23,23 +23,25 @@ module.exports = function(app) {
 
     app.post("/api/candidates", function(req, res) {
 
-var differences = [];
-var allDiff = [];
-var arrayOne = [];
+// var differences = [];
+// var allDiff = [];
+// var arrayOne = res.json(req.body);
+// var arrayTwo = [];
 
-        findDifferences();
+//         arrayTwo.push(req.body); 
 
-        // res.json(bestMatch);
+//         findDifferences(candidates);
 
-        alert("Your best match is: " + bestMatch)
+
+        alert("Your best match is being calculated among: " + res.json(req.body))
 
     });
 
   };
 
-    //export function that finds differences between arrays================
+    //function that finds differences between arrays================
 
-   function findDifferences() {
+   function findDifferences(candidates) {
 
     var bestMatch;
     var bestIndex;
