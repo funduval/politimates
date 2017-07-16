@@ -23,30 +23,27 @@ module.exports = function(app) {
 
     app.post("/api/candidates", function(req, res) {
 
-// var differences = [];
-// var allDiff = [];
-// var arrayOne = res.json(req.body);
-// var arrayTwo = [];
+//this post route calls a function which handles comparing the data object that comes in from the $.post, to the other objects in the database, and returns an index number where the "best match" lives.
 
-//         arrayTwo.push(req.body); 
-
-//         findDifferences(candidates);
-
-
-        alert("Your best match is being calculated among: " + res.json(req.body))
-
+            candidates.push(req.body);
+            
+        
     });
 
   };
 
-    //function that finds differences between arrays================
+findDifferences(candidates);
 
-   function findDifferences(candidates) {
+function findDifferences(candidates) {
 
-    var bestMatch;
-    var bestIndex;
+            var differences = [];
+            var allDiff = [];
+            var arrayOne = [];
+            var arrayTwo = res.json(req.body);
+            var bestIndex = 0;
+            arrayOne.push(candidates[candidates.length-1])
 
-        arrayOne.push(candidates[candidates.length - 1])
+            var bestMatch;
 
         arrayOne = arrayOne.map(function(c) {
             return c.scores
@@ -58,7 +55,7 @@ module.exports = function(app) {
             return d.scores
         });
 
-        //subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo (for every single object in arrayTwo) which is the bigger object. Get the absolute values of the difference.//
+//subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo, for each object//
 
         arrayTwo.map(function(object) {
 
@@ -76,22 +73,21 @@ module.exports = function(app) {
 
         });
 
-        //Determine the smallest value (differences) in the array of all absolute differences (allDiff). This is the score of your best match.//
+        //Determine the smallest value//
 
         Array.min = function(allDiff) {
 
             return Math.min.apply(Math, allDiff);
         };
 
-        //find the indexOf that score. It is also the index of the person in the whole candidates data object.//
+        //find the indexOf that score.//
 
         bestMatch = Array.min(allDiff);
         bestIndex = allDiff.indexOf(bestMatch)
 
         //=====this is. the magic object=====================================//
 
-        bestMatch = candidates[bestIndex];
+        bestCandidate.push(candidates[bestIndex]);
+
 
     }
-
-
