@@ -111,8 +111,6 @@
 
 $("#submit").on("click", function() {
 
-    var toggle;
-
     event.preventDefault();
 
     let newUser = {
@@ -141,30 +139,23 @@ $("#submit").on("click", function() {
                 $("#allLives").val('');
                 $("#denial").val('');
                 $("#choice").val('');
-                $("#toggle").val(false);
 
     });
 
-});
-
-var currentURL = window.location.origin;
-
 $.ajax({
-    url: currentURL + "/api/candidates",
+
+    url: currentURL + "/api/bestCandidate",
     method: "GET"
 
-}).done(function(candidates) {
+}).done(function(bestCandidate) {
 
-for (var i = 0; i < candidates.length; i++) {
-
-             if(candidates[i].toggle == true){
-
-               alert("Your perfect match is: " + candidates[i].name + "\nTheir image can be seen at: " + candidates[i].photo)
-
-            };
-};
+               alert("Your perfect match is: " + bestCandidate[bestCandidate.length-1].name + "\nTheir image can be seen at: " + bestCandidate[bestCandidate.length-1].photo)
 
 });
+
+});
+
+
 
 </script>
 </body>

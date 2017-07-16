@@ -1,36 +1,6 @@
 
-var candidates = require('../data/candidates.js');
-var bestCandidate = require('../data/bestCandidate.js');
 
-
-module.exports = function(app) {
-
-        candidates=candidates;
-
-    app.get("/api/candidates", function(req, res) {
-
-        res.json(candidates);
-
-    })
-
-     app.get("/api/bestCandidates", function(req, res) {
-
-        res.json(bestCandidate);
-
-    })
-
-
-    app.post("/api/candidates", function(req, res) {
-
-            var data = req.body
-            candidates.push(data);            
-        
-    });
-
-
-function findDiff(){
-
-            var differences = [];
+        var differences = [];
             var allDiff = [];
             var arrayOne = [];
             var arrayTwo = res.json(req.body);
@@ -79,7 +49,7 @@ function findDiff(){
         bestIndex = allDiff.indexOf(bestMatch)
 
         //=====this is. the magic object=====================================//
-        bestCandidate.push(candidates[bestIndex])
-}
 
-};
+
+
+   
