@@ -2,10 +2,7 @@
 var candidates = require('../data/candidates.js');
 var bestCandidate = require('../data/bestCandidate.js');
 
-
 module.exports = function(app) {
-
-        candidates=candidates;
 
     app.get("/api/candidates", function(req, res) {
 
@@ -13,73 +10,74 @@ module.exports = function(app) {
 
     })
 
-     app.get("/api/bestCandidates", function(req, res) {
+     app.get("/api/bestCandidate", function(req, res) {
 
         res.json(bestCandidate);
 
     })
 
-
     app.post("/api/candidates", function(req, res) {
-
-            var data = req.body
-            candidates.push(data);            
+          
+            candidates.push(req.body);
+            res.json(true);
+            // findDiff();
         
     });
 
+    };
 
-function findDiff(){
 
-            var differences = [];
-            var allDiff = [];
-            var arrayOne = [];
-            var arrayTwo = res.json(req.body);
-            arrayOne.push(candidates[candidates.length-1])
-            var bestMatch;
-            var bestIndex = 0;
+// function findDiff(bestIndex){
+      // var bestIndex;
+//             bestIndex = 0;
+//             var differences = [];
+//             var allDiff = [];
+//             var arrayOne = [];
+//             var arrayTwo = res.json(req.body);
+//             arrayOne.push(candidates[candidates.length-1])
+//             var bestMatch;
 
-        arrayOne = arrayOne.map(function(c) {
-            return c.scores
-        });
+//         arrayOne = arrayOne.map(function(c) {
+//             return c.scores
+//         });
 
-        arrayOne = arrayOne[0];
+//         arrayOne = arrayOne[0];
 
-        var arrayTwo = candidates.map(function(d) {
-            return d.scores
-        });
+//         var arrayTwo = candidates.map(function(d) {
+//             return d.scores
+//         });
 
-//subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo, for each object//
+// //subtract all of the different items in arrayOne from all of the correspondiing indexes in arrayTwo, for each object//
 
-        arrayTwo.map(function(object) {
+//         arrayTwo.map(function(object) {
 
-            for (var i = 0; i < object.length; i++) {
+//             for (var i = 0; i < object.length; i++) {
 
-                var sum = Math.abs(object[i] - arrayOne[i])
-                differences.push(sum);
+//                 var sum = Math.abs(object[i] - arrayOne[i])
+//                 differences.push(sum);
 
-            }
-            var totDiff = differences.reduce(function(sum, value) {
-                return sum + value;
-            }, 0);
+//             }
+//             var totDiff = differences.reduce(function(sum, value) {
+//                 return sum + value;
+//             }, 0);
 
-            allDiff.push(totDiff);
+//             allDiff.push(totDiff);
 
-        });
+//         });
 
-        //Determine the smallest value//
+//         //Determine the smallest value//
 
-        Array.min = function(allDiff) {
+//         Array.min = function(allDiff) {
 
-            return Math.min.apply(Math, allDiff);
-        };
+//             return Math.min.apply(Math, allDiff);
+//         };
 
-        //find the indexOf that score.//
+//         //find the indexOf that score.//
 
-        bestMatch = Array.min(allDiff);
-        bestIndex = allDiff.indexOf(bestMatch)
+//         bestMatch = Array.min(allDiff);
+//         bestIndex = allDiff.indexOf(bestMatch)
 
-        //=====this is. the magic object=====================================//
-        bestCandidate.push(candidates[bestIndex])
-}
+//         //=====this is. the magic object=====================================//
+//        return bestIndex;
+// }
 
-};
