@@ -19,7 +19,7 @@ module.exports = function(app) {
     app.post("/api/candidates", function(req, res) {
           
             candidates.push(req.body);
-            res.json(true);
+           
             // findDiff();
         
     });
